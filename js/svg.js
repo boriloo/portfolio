@@ -3,7 +3,7 @@ lottie.loadAnimation({
     renderer: 'svg',
     loop: true,
     autoplay: true,
-    path: '/assets/svg/wave.json'
+    path: 'assets/svg/wave.json'
 });
 
 lottie.loadAnimation({
@@ -11,5 +11,5 @@ lottie.loadAnimation({
     renderer: 'svg', // pode ser 'canvas' ou 'html' também
     loop: true,
     autoplay: true,
-    path: '/assets/svg/loading.json' // caminho para seu arquivo JSON
+    path: 'assets/svg/loading.json' // caminho para seu arquivo JSON
 });
