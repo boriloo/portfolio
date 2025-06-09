@@ -181,7 +181,7 @@ body {
 }
 .modal-view .modal .column img {
   border-radius: 10px;
-  background-image: url(/assets/images/LOL_project.png);
+  background-image: url(assets/images/LOL_project.png);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -600,7 +600,7 @@ main .section-3 .row .projeto {
 main .section-3 .row .projeto .img {
   width: 100%;
   height: 240px;
-  background-image: url(/assets/images/NB_project.png);
+  background-image: url(assets/images/NB_project.png);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
