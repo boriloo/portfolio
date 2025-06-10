@@ -13,6 +13,7 @@ let scrollValue = 0;
 let lastScroll = 0;
 
 const graphIcon = document.querySelector(".graph-icon");
+const graphMode = document.querySelector(".graph-mode");
 graphIcon.addEventListener("click", () => {
   if (highGraph) {
     // ECONOMIA
@@ -31,11 +32,17 @@ graphIcon.addEventListener("click", () => {
 window.addEventListener("scroll", () => {
   const currentScroll = window.scrollY;
   if (currentScroll > lastScroll) {
+    if (window.innerWidth < 500) {
+      graphMode.style.paddingBottom = "";
+    }
     sectionRow.style.opacity = "0";
     sectionRow.style.pointerEvents = "none";
     topSection.style.opacity = "0";
     topSection.style.pointerEvents = "none";
   } else {
+    if (window.innerWidth < 500) {
+      graphMode.style.paddingBottom = "85px";
+    }
     sectionRow.style.opacity = "1";
     sectionRow.style.pointerEvents = "all";
     topSection.style.opacity = "1";

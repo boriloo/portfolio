@@ -187,6 +187,7 @@ body {
       }
 
       h1 {
+        cursor: text;
         color: var(--text-color);
       }
     }
@@ -214,6 +215,7 @@ body {
           justify-content: start;
 
           p {
+            cursor: text;
             background-color: var(--bg-color);
             padding: 5px 10px 5px 10px;
             font-size: 14px;
@@ -225,6 +227,7 @@ body {
         }
 
         p {
+          cursor: text;
           color: var(--text-color);
         }
       }
@@ -456,7 +459,7 @@ body {
   width: 100%;
   justify-content: center;
   gap: 5px;
-  z-index: 99;
+  z-index: 999;
   pointer-events: none;
 
   .row {
@@ -596,8 +599,8 @@ main {
         color: var(--text-color);
       }
 
-      .row {
-        max-width: 450px;
+      .lang-row {
+        max-width: 440px;
         flex-wrap: wrap;
         gap: 10px;
 
@@ -829,16 +832,6 @@ main {
 }
 
 @media (max-width: 770px) {
-  .section-row {
-    bottom: 70px;
-
-    .row {
-      padding-top: 15px;
-      padding-bottom: 15px;
-      border-radius: 10px 10px 10px 10px;
-    }
-  }
-
   .modal-view {
     .modal {
       .coluna-2 {
@@ -893,7 +886,12 @@ main {
   }
 
   .section-row {
+    bottom: 0;
     .row {
+      justify-content: space-around;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      width: 100%;
       .column {
         min-width: 100px;
 

@@ -187,6 +187,7 @@ body {
   min-width: 280px;
 }
 .modal-view .modal .column h1 {
+  cursor: text;
   color: var(--text-color);
 }
 .modal-view .modal .coluna {
@@ -211,6 +212,7 @@ body {
   justify-content: start;
 }
 .modal-view .modal .coluna-2 .column .row p {
+  cursor: text;
   background-color: var(--bg-color);
   padding: 5px 10px 5px 10px;
   font-size: 14px;
@@ -220,6 +222,7 @@ body {
   border: 1px solid var(--text-color);
 }
 .modal-view .modal .coluna-2 .column p {
+  cursor: text;
   color: var(--text-color);
 }
 .modal-view .modal .coluna-2 button {
@@ -422,7 +425,7 @@ body {
   width: 100%;
   justify-content: center;
   gap: 5px;
-  z-index: 99;
+  z-index: 999;
   pointer-events: none;
 }
 .section-row .row {
@@ -546,12 +549,12 @@ main .section-2 .column h1 {
   font-weight: 400;
   color: var(--text-color);
 }
-main .section-2 .column .row {
-  max-width: 450px;
+main .section-2 .column .lang-row {
+  max-width: 440px;
   flex-wrap: wrap;
   gap: 10px;
 }
-main .section-2 .column .row .lang {
+main .section-2 .column .lang-row .lang {
   font-size: 12px;
   font-weight: 500;
   color: var(--text-color);
@@ -561,67 +564,67 @@ main .section-2 .column .row .lang {
   cursor: pointer;
   transition: 0.3s;
 }
-main .section-2 .column .row .lang:hover {
+main .section-2 .column .lang-row .lang:hover {
   transform: translateY(-3px);
   background-color: rgba(16, 16, 16, 0.831372549);
 }
-main .section-2 .column .row .selected {
+main .section-2 .column .lang-row .selected {
   background-color: var(--text-color);
   color: var(--bg-color);
 }
-main .section-2 .column .row .lang[data-lang=html]:hover {
+main .section-2 .column .lang-row .lang[data-lang=html]:hover {
   color: #ff5328;
   border-color: #ff5328;
 }
-main .section-2 .column .row .lang[data-lang=css]:hover {
+main .section-2 .column .lang-row .lang[data-lang=css]:hover {
   color: #3f65ff;
   border-color: #3f65ff;
 }
-main .section-2 .column .row .lang[data-lang=js]:hover {
+main .section-2 .column .lang-row .lang[data-lang=js]:hover {
   color: #ffd500;
   border-color: #ffd500;
 }
-main .section-2 .column .row .lang[data-lang=react]:hover {
+main .section-2 .column .lang-row .lang[data-lang=react]:hover {
   color: #21cfff;
   border-color: #21cfff;
 }
-main .section-2 .column .row .lang[data-lang=ts]:hover {
+main .section-2 .column .lang-row .lang[data-lang=ts]:hover {
   color: #1e5eff;
   border-color: #1e5eff;
 }
-main .section-2 .column .row .lang[data-lang=git]:hover {
+main .section-2 .column .lang-row .lang[data-lang=git]:hover {
   color: #f05032;
   border-color: #f05032;
 }
-main .section-2 .column .row .lang[data-lang=tailwind]:hover {
+main .section-2 .column .lang-row .lang[data-lang=tailwind]:hover {
   color: #a05dff;
   border-color: #a05dff;
 }
-main .section-2 .column .row .lang[data-lang=rn]:hover {
+main .section-2 .column .lang-row .lang[data-lang=rn]:hover {
   color: #61dafb;
   border-color: #61dafb;
 }
-main .section-2 .column .row .lang[data-lang=next]:hover {
+main .section-2 .column .lang-row .lang[data-lang=next]:hover {
   color: #ffffff;
   border-color: #ffffff;
 }
-main .section-2 .column .row .lang[data-lang=node]:hover {
+main .section-2 .column .lang-row .lang[data-lang=node]:hover {
   color: #71e067;
   border-color: #71e067;
 }
-main .section-2 .column .row .lang[data-lang=express]:hover {
+main .section-2 .column .lang-row .lang[data-lang=express]:hover {
   color: #f7d31e;
   border-color: #f7d31e;
 }
-main .section-2 .column .row .lang[data-lang=elementor]:hover {
+main .section-2 .column .lang-row .lang[data-lang=elementor]:hover {
   color: #ff0066;
   border-color: #ff0066;
 }
-main .section-2 .column .row .lang[data-lang=uiux]:hover {
+main .section-2 .column .lang-row .lang[data-lang=uiux]:hover {
   color: #ff6f61;
   border-color: #ff6f61;
 }
-main .section-2 .column .row .lang[data-lang=figma]:hover {
+main .section-2 .column .lang-row .lang[data-lang=figma]:hover {
   color: #a05dff;
   border-color: #a05dff;
 }
@@ -734,14 +737,6 @@ main .section-3 .row .projeto:hover .column {
   }
 }
 @media (max-width: 770px) {
-  .section-row {
-    bottom: 70px;
-  }
-  .section-row .row {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border-radius: 10px 10px 10px 10px;
-  }
   .modal-view .modal .coluna-2 {
     max-width: 100%;
   }
@@ -770,6 +765,15 @@ main .section-3 .row .projeto:hover .column {
 @media (max-width: 426px) {
   .margin .margin-container {
     background-image: linear-gradient(var(--bg-color), transparent 5% 95%, var(--bg-color));
+  }
+  .section-row {
+    bottom: 0;
+  }
+  .section-row .row {
+    justify-content: space-around;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
   }
   .section-row .row .column {
     min-width: 100px;
