@@ -147,9 +147,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  padding: 8vi 30px 30px 30px;
   transition: 0.4s;
-  overflow-y: auto;
 }
 .modal-view .close-modal-icon {
   position: fixed;
@@ -351,12 +350,27 @@ body {
 
 .color-mode {
   top: 0;
-  z-index: 99;
+  z-index: 999;
   position: fixed;
   right: 0;
   background-color: var(--bg-color);
   padding: 18px 15px 18px 15px;
   border-bottom-left-radius: 10px;
+  pointer-events: all;
+  cursor: default;
+}
+
+.graph-mode {
+  bottom: 0;
+  z-index: 999;
+  position: fixed;
+  right: 0;
+  background-color: var(--bg-color);
+  padding: 18px 15px 18px 15px;
+  border-top-left-radius: 10px;
+  pointer-events: all;
+  cursor: default;
+  transition: 0.3s;
 }
 
 .top-section {
@@ -514,7 +528,7 @@ main .waves-svg {
   height: 900px;
   filter: saturate(0) brightness(0.8);
   right: 2vi;
-  z-index: 100;
+  z-index: 0;
 }
 main .section-2 {
   align-items: center;
@@ -704,6 +718,9 @@ main .section-3 .row .projeto:hover .column {
   }
 }
 @media (max-width: 1444px) {
+  .waves-svg {
+    opacity: 0.6;
+  }
   main .section-1 {
     padding: 0px 0px 0px 300px;
   }
@@ -717,6 +734,14 @@ main .section-3 .row .projeto:hover .column {
   }
 }
 @media (max-width: 770px) {
+  .section-row {
+    bottom: 70px;
+  }
+  .section-row .row {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px 10px 10px 10px;
+  }
   .modal-view .modal .coluna-2 {
     max-width: 100%;
   }
