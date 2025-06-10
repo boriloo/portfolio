@@ -1,10 +1,12 @@
+
 const lastElement = document.querySelector('.bosta')
 const distance = lastElement.getBoundingClientRect().top + window.scrollY
 const realDistance = document.querySelector('.bosta').offsetHeight + distance
 const fakeScroll = document.querySelector('.fake-scroll')
 fakeScroll.style.height = `${realDistance + 200}px`
 const circle = document.querySelector('.cursor-ball');
-const sectionRow = document.querySelector('.section-row')
+const sectionRow = document.querySelector('.sections')
+const topSection = document.querySelector('.top-section')
 let scrollValue = 0
 
 let lastScroll = 0;
@@ -15,16 +17,31 @@ window.addEventListener('scroll', () => {
     if (currentScroll > lastScroll) {
         sectionRow.style.opacity = '0';
         sectionRow.style.pointerEvents = 'none';
+        topSection.style.opacity = '0';
+        topSection.style.pointerEvents = 'none';
     } else {
         sectionRow.style.opacity = '1';
         sectionRow.style.pointerEvents = 'all';
+        topSection.style.opacity = '1';
+        topSection.style.pointerEvents = 'all';
     }
     lastScroll = currentScroll;
 });
 
 
 // LIGHT / DARK MODE
+let modo = localStorage.getItem('mode');
 let darkMode = true;
+if (modo) {
+    switch (modo) {
+        case 'dark':
+            break;
+        case 'light':
+            darkMode = false;
+            document.documentElement.classList.remove('dark');
+            break;
+    }
+}
 const modeIcon = document.querySelector('.mode-icon');
 const darkBall = document.querySelector('.dark-ball');
 const lightBall = document.querySelector('.light-ball');
@@ -64,8 +81,10 @@ function toggleModeAnimation(showBall, hideBall, iconAdd, iconRemove) {
 
 modeIcon.addEventListener('click', () => {
     if (darkMode) {
+        localStorage.setItem('mode', 'light');
         toggleModeAnimation(darkBall, lightBall, 'bi-moon', 'bi-sun');
     } else {
+        localStorage.setItem('mode', 'dark');
         toggleModeAnimation(lightBall, darkBall, 'bi-sun', 'bi-moon');
     }
 

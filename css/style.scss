@@ -130,7 +130,7 @@ body {
     pointer-events: none;
 
     .modal {
-        filter: blur(1vi);
+        filter: blur(0.8vi);
     }
 }
 
@@ -145,7 +145,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 30px;
-    transition: 0.5s;
+    transition: 0.4s;
     overflow-y: auto;
 
     .close-modal-icon {
@@ -337,6 +337,7 @@ body {
     .loading-svg {
         z-index: 2;
         width: 200px;
+        filter: brightness(0.45);
         animation: loading-out ease 1s forwards;
         animation-delay: 1.5s;
     }
@@ -389,6 +390,53 @@ body {
     border-bottom-left-radius: 10px;
 }
 
+.top-section {
+    position: fixed;
+    top: 2.05vi;
+    width: 100%;
+    padding-left: 2.05vi;
+    justify-content: center;
+    gap: 5px;
+    z-index: 99;
+    pointer-events: none;
+    display: flex;
+    justify-content: start;
+    transition: 0.3s;
+
+    h1 {
+        margin: 10px;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: 400;
+        padding: 10px;
+        pointer-events: all;
+        gap: 8px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.3s;
+
+        i {
+            padding: 0;
+            font-size: 18px;
+            pointer-events: none;
+            color: var(--text-color);
+            transition: 0.3s;
+        }
+    }
+
+    h1:hover {
+        background-color: var(--text-color);
+        color: var(--bg-color);
+
+        i {
+            color: var(--bg-color);
+        }
+    }
+}
+
 .section-row {
     position: fixed;
     bottom: 2.05vi;
@@ -396,15 +444,15 @@ body {
     justify-content: center;
     gap: 5px;
     z-index: 99;
-    transition: opacity 0.3s;
     pointer-events: none;
 
     .row {
         background-color: var(--bg-color);
         border-radius: 10px 10px 0px 0px;
         // border: 1px solid #b3b3b3;
-        pointer-events: all;
+        transition: opacity 0.3s;
         flex-wrap: wrap;
+        pointer-events: all;
 
         .column {
             padding: 10px;

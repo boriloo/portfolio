@@ -11,6 +11,11 @@ function MouseEnterCircle() {
 const langRow = document.querySelector('.lang-row');
 langRow.addEventListener('mouseleave', MouseEnterCircle)
 langRow.addEventListener('mouseenter', MouseLeaveCircle)
+const cvText = document.querySelector('.cv-text');
+cvText.addEventListener('mouseleave', MouseEnterCircle)
+cvText.addEventListener('mouseenter', MouseLeaveCircle)
+sectionRow.addEventListener('mouseleave', MouseEnterCircle)
+sectionRow.addEventListener('mouseenter', MouseLeaveCircle)
 const projects = document.querySelectorAll('.projeto');
 projects.forEach((project) => {
     project.addEventListener('mouseleave', MouseEnterCircle)
@@ -30,3 +35,14 @@ const closeModalIcon = document.querySelector('.close-modal-icon')
 closeModalIcon.addEventListener('click', () => {
     modalView.classList.add('modal-closed')
 })
+
+cvText.addEventListener('click', downloadCV);
+
+function downloadCV() {
+    const link = document.createElement('a');
+    link.href = 'assets/pdf/cv.pdf';
+    link.download = 'cv.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
