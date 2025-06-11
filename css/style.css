@@ -147,14 +147,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8vi 30px 30px 30px;
+  padding: 70px 30px 30px 30px;
   transition: 0.4s;
 }
 .modal-view .close-modal-icon {
   position: fixed;
   top: 20px;
   border-radius: 50%;
-  background-color: var(--bg-color);
+  background-color: var(--bg-70-color);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   font-size: 30px;
   transition: 0.2s;
 }
@@ -533,6 +535,14 @@ main .waves-svg {
   right: 2vi;
   z-index: 0;
 }
+main .imagem {
+  width: 30%;
+  height: 40vh;
+  opacity: 0.8;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 main .section-2 {
   align-items: center;
   justify-content: space-between;
@@ -763,6 +773,18 @@ main .section-3 .row .projeto:hover .column {
   }
 }
 @media (max-width: 426px) {
+  .color-mode {
+    padding: 10px;
+  }
+  .color-mode i {
+    font-size: 20px;
+  }
+  .graph-mode {
+    padding: 10px;
+  }
+  .graph-mode i {
+    font-size: 20px;
+  }
   .margin .margin-container {
     background-image: linear-gradient(var(--bg-color), transparent 5% 95%, var(--bg-color));
   }
@@ -772,7 +794,7 @@ main .section-3 .row .projeto:hover .column {
   .section-row .row {
     justify-content: space-around;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     width: 100%;
   }
   .section-row .row .column {

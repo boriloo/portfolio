@@ -41,7 +41,7 @@ window.addEventListener("scroll", () => {
     topSection.style.pointerEvents = "none";
   } else {
     if (window.innerWidth < 500) {
-      graphMode.style.paddingBottom = "85px";
+      graphMode.style.paddingBottom = "75px";
     }
     sectionRow.style.opacity = "1";
     sectionRow.style.pointerEvents = "all";
@@ -106,10 +106,19 @@ function toggleModeAnimation(showBall, hideBall, iconAdd, iconRemove) {
 modeIcon.addEventListener("click", () => {
   if (darkMode) {
     localStorage.setItem("mode", "light");
-    toggleModeAnimation(darkBall, lightBall, "bi-moon", "bi-sun");
+    if (highGraph) {
+      toggleModeAnimation(darkBall, lightBall, "bi-moon", "bi-sun");
+    } else {
+      document.documentElement.classList.toggle("dark");
+    }
+
   } else {
     localStorage.setItem("mode", "dark");
-    toggleModeAnimation(lightBall, darkBall, "bi-sun", "bi-moon");
+    if (highGraph) {
+      toggleModeAnimation(lightBall, darkBall, "bi-sun", "bi-moon");
+    } else {
+      document.documentElement.classList.toggle("dark");
+    }
   }
 
   darkMode = !darkMode;
@@ -163,7 +172,7 @@ function animate(e) {
 
   const target = window.scrollY;
   const diff = target - current;
-  if (Math.abs(diff) < 0.1) {
+  if (Math.abs(diff) < 0.8) {
     current = target;
   } else {
     current += diff * ease;
@@ -173,9 +182,8 @@ function animate(e) {
   if (highGraph)
     scrollContainer.style.filter = `blur(${Math.abs(diff) * 0.02}px)`;
   if (window.innerWidth > 770) {
-    topText.style.transform = `perspective(25vi) rotateY(${
-      25 - current * 0.03
-    }deg)`;
+    topText.style.transform = `perspective(25vi) rotateY(${25 - (highGraph ? current : target) * 0.03
+      }deg)`;
   } else {
     topText.style.transform = `perspective(0) rotateY(0deg)`;
   }

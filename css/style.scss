@@ -144,14 +144,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8vi 30px 30px 30px;
+  padding: 70px 30px 30px 30px;
   transition: 0.4s;
 
   .close-modal-icon {
     position: fixed;
     top: 20px;
     border-radius: 50%;
-    background-color: var(--bg-color);
+    background-color: var(--bg-70-color);
+    backdrop-filter: blur(5px);
     font-size: 30px;
     transition: 0.2s;
   }
@@ -373,11 +374,9 @@ body {
     border: 1px solid var(--text-color);
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(
-      var(--bg-color),
-      transparent 15% 85%,
-      var(--bg-color)
-    );
+    background-image: linear-gradient(var(--bg-color),
+        transparent 15% 85%,
+        var(--bg-color));
   }
 }
 
@@ -580,6 +579,15 @@ main {
     filter: saturate(0) brightness(0.8);
     right: 2vi;
     z-index: 0;
+  }
+
+  .imagem {
+    width: 30%;
+    height: 40vh;
+    opacity: 0.8;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 
   .section-2 {
@@ -812,6 +820,7 @@ main {
   .waves-svg {
     opacity: 0.6;
   }
+
   main {
     .section-1 {
       padding: 0px 0px 0px 300px;
@@ -875,23 +884,39 @@ main {
 }
 
 @media (max-width: 426px) {
+  .color-mode {
+    padding: 10px;
+
+    i {
+      font-size: 20px;
+    }
+  }
+
+  .graph-mode {
+    padding: 10px;
+
+    i {
+      font-size: 20px;
+    }
+  }
+
   .margin {
     .margin-container {
-      background-image: linear-gradient(
-        var(--bg-color),
-        transparent 5% 95%,
-        var(--bg-color)
-      );
+      background-image: linear-gradient(var(--bg-color),
+          transparent 5% 95%,
+          var(--bg-color));
     }
   }
 
   .section-row {
     bottom: 0;
+
     .row {
       justify-content: space-around;
       padding-top: 10px;
-      padding-bottom: 10px;
+      padding-bottom: 5px;
       width: 100%;
+
       .column {
         min-width: 100px;
 
