@@ -1,8 +1,8 @@
-const lastElement = document.querySelector(".bosta");
+const lastElement = document.querySelector(".footer");
 const distance = lastElement.getBoundingClientRect().top + window.scrollY;
-const realDistance = document.querySelector(".bosta").offsetHeight + distance;
+const realDistance = lastElement.offsetHeight + distance;
 const fakeScroll = document.querySelector(".fake-scroll");
-fakeScroll.style.height = `${realDistance + 200}px`;
+fakeScroll.style.height = `${realDistance + 100}px`;
 const circle = document.querySelector(".cursor-ball");
 const sectionRow = document.querySelector(".sections");
 const topSection = document.querySelector(".top-section");
@@ -12,22 +12,48 @@ let scrollValue = 0;
 
 let lastScroll = 0;
 
+if (window.innerWidth < 770) {
+  document.body.classList.remove('no-cursor')
+}
+
+
 const graphIcon = document.querySelector(".graph-icon");
 const graphMode = document.querySelector(".graph-mode");
+if (window.innerWidth < 500) {
+  graphMode.style.paddingBottom = "75px";
+}
 graphIcon.addEventListener("click", () => {
   if (highGraph) {
     // ECONOMIA
+    localStorage.setItem("graph", "low");
     circle.style.filter = `blur(0px)`;
     scrollContainer.style.filter = `blur(0px)`;
     graphIcon.classList.remove("bi-stars");
     graphIcon.classList.add("bi-star-fill");
   } else {
     // GRÁFICO
+    localStorage.setItem("graph", "high");
     graphIcon.classList.add("bi-stars");
     graphIcon.classList.remove("bi-star-fill");
   }
   highGraph = !highGraph;
 });
+
+let localGraph = localStorage.getItem("graph");
+if (localGraph) {
+  switch (localGraph) {
+    case "high":
+      break;
+    case "low":
+      highGraph = false;
+      circle.style.filter = `blur(0px)`;
+      scrollContainer.style.filter = `blur(0px)`;
+      graphIcon.classList.remove("bi-stars");
+      graphIcon.classList.add("bi-star-fill");
+      break;
+  }
+}
+
 
 window.addEventListener("scroll", () => {
   const currentScroll = window.scrollY;
@@ -161,7 +187,7 @@ document.addEventListener("mousemove", (e) => {
 
 let current = 0;
 const ease = 0.08;
-
+const projects = document.querySelectorAll('.projeto');
 function animate(e) {
   offsetX += velocityX;
   offsetY += velocityY;
@@ -191,7 +217,18 @@ function animate(e) {
   circle.style.top = `${highGraph ? finalY : mouseY}px`;
   if (highGraph)
     circle.style.filter = `blur(${Math.abs(finalX - mouseX) * 0.08}px)`;
+  projects.forEach((project) => {
+    const rect = project.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight - 200;
 
+    if (isVisible) {
+      project.style.transform = 'scale(1)';
+      project.style.opacity = '1';
+    } else {
+      project.style.transform = 'scale(0.5)';
+      project.style.opacity = '0';
+    }
+  })
   if (langTextCounter > 0) {
     langTextCounter -= 1;
     bigLangText.style.opacity = "0";

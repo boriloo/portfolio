@@ -1,11 +1,15 @@
 function MouseLeaveCircle() {
-    circle.style.transform = 'translate(-50%, -50%) scale(0)'
-    document.body.classList.remove('no-cursor')
+    if (window.innerWidth > 770) {
+        circle.style.transform = 'translate(-50%, -50%) scale(0)'
+        document.body.classList.remove('no-cursor')
+    }
 }
 
 function MouseEnterCircle() {
-    circle.style.transform = 'translate(-50%, -50%) scale(1)'
-    document.body.classList.add('no-cursor')
+    if (window.innerWidth > 770) {
+        circle.style.transform = 'translate(-50%, -50%) scale(1)'
+        document.body.classList.add('no-cursor')
+    }
 }
 
 const langRow = document.querySelector('.lang-row');
@@ -16,13 +20,17 @@ cvText.addEventListener('mouseleave', MouseEnterCircle)
 cvText.addEventListener('mouseenter', MouseLeaveCircle)
 sectionRow.addEventListener('mouseleave', MouseEnterCircle)
 sectionRow.addEventListener('mouseenter', MouseLeaveCircle)
-const projects = document.querySelectorAll('.projeto');
 projects.forEach((project) => {
     project.addEventListener('mouseleave', MouseEnterCircle)
     project.addEventListener('mouseenter', MouseLeaveCircle)
     project.addEventListener('click', () => { ProjectClick(project) });
 })
 
+const socials = document.querySelectorAll('.social');
+socials.forEach((social) => {
+    social.addEventListener('mouseleave', MouseEnterCircle)
+    social.addEventListener('mouseenter', MouseLeaveCircle)
+})
 
 const modalView = document.querySelector('.modal-view')
 function ProjectClick(project) {
