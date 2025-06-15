@@ -54,9 +54,13 @@ if (localGraph) {
   }
 }
 
-
+const aboutText = document.querySelector('.about-text');
+// const aboutTextDistance = section4.getBoundingClientRect().top - section4.offsetHeight;
+const aboutWords = document.querySelectorAll('.about-word');
 window.addEventListener("scroll", () => {
   const currentScroll = window.scrollY;
+
+
   if (currentScroll > lastScroll) {
     if (window.innerWidth < 500) {
       graphMode.style.paddingBottom = "";
@@ -152,12 +156,63 @@ modeIcon.addEventListener("click", () => {
 
 let langTextCounter = 0;
 let langText = "";
+let langDesc = "";
 const langs = document.querySelectorAll(".lang");
+const langTextColumn = document.querySelector(".lang-text-column");
 const bigLangText = document.querySelector(".big-lang-text");
+const langDescription = document.querySelector(".lang-description");
+// const langGradient = document.querySelector(".lang-gradient");
 langs.forEach((lang) => {
-  lang.addEventListener("mouseenter", () => {
+  lang.addEventListener("click", () => {
     langTextCounter = 60;
     langText = lang.innerHTML;
+    switch (lang.innerHTML) {
+      case "HTML":
+        langDesc = 'Estrutura base de qualquer página web. Define o conteúdo e a hierarquia dos elementos.';
+        break;
+      case "CSS":
+        langDesc = 'Linguagem de estilo usada para dar aparência, cores, espaçamentos e posicionamento aos elementos HTML.';
+        break;
+      case "JAVASCRIPT":
+        langDesc = 'Linguagem de programação responsável por adicionar interatividade e dinamismo aos sites.';
+        break;
+      case "REACT":
+        langDesc = 'Biblioteca JavaScript focada em construir interfaces de usuário com alta performance e componentes reutilizáveis.';
+        break;
+      case "TYPESCRIPT":
+        langDesc = 'Superset do JavaScript que adiciona tipagem estática, ajudando a prevenir erros e melhorar o desenvolvimento em larga escala.';
+        break;
+      case "GIT":
+        langDesc = 'Sistema de controle de versão que permite rastrear mudanças no código e trabalhar de forma colaborativa em projetos.';
+        break;
+      case "TAILWIND/SCSS":
+        langDesc = 'Tailwind: Framework de CSS utilitário com classes pré-definidas. <br/> SCSS: Pré-processador CSS com recursos como variáveis e funções.';
+        break;
+      case "REACT NATIVE":
+        langDesc = 'Framework baseado em React para criar aplicativos mobile nativos usando JavaScript.';
+        break;
+      case "NEXT.JS":
+        langDesc = 'Framework React que facilita a criação de aplicações web rápidas, com renderização no servidor e geração de sites estáticos.';
+        break;
+      case "NODE.JS":
+        langDesc = 'Ambiente de execução JavaScript no lado do servidor. Ideal para criar APIs e backends escaláveis.';
+        break;
+      case "EXPRESS":
+        langDesc = 'Framework minimalista para Node.js, usado para criar servidores web e APIs de forma simples e rápida.';
+        break;
+      case "ELEMENTOR":
+        langDesc = 'Construtor de sites visual para WordPress. Permite criar páginas de forma intuitiva sem escrever código.';
+        break;
+      case "UI/UX":
+        langDesc = 'Princípios de design focados na experiência do usuário (UX) e na criação de interfaces agradáveis e funcionais (UI).';
+        break;
+      case "FIGMA":
+        langDesc = 'Ferramenta online de design de interface e prototipagem, muito usada para criar layouts e fluxos de navegação.';
+        break;
+      default:
+        langDesc = 'Escolha uma tecnologia';
+        break;
+    }
   });
 });
 
@@ -188,6 +243,9 @@ document.addEventListener("mousemove", (e) => {
 let current = 0;
 const ease = 0.08;
 const projects = document.querySelectorAll('.projeto');
+
+
+
 function animate(e) {
   offsetX += velocityX;
   offsetY += velocityY;
@@ -202,6 +260,31 @@ function animate(e) {
     current = target;
   } else {
     current += diff * ease;
+  }
+
+  // WORDS APPEARING
+  if (current > (window.innerWidth > 770 ? 700 : 0) &&
+    current < (window.innerWidth > 770 ? 2250 : 1650)) {
+    circle.style.opacity = '0'
+    aboutText.style.opacity = '1'
+    aboutWords.forEach((aboutWord, index) => {
+      if (current > 700 + 40 * index) {
+        aboutWord.style.opacity = `${Math.min((current - 700 - 40 * index) * 0.004, 1)}`;
+        aboutWord.style.transform = `translateY(${Math.max((1 - Math.min((current - 700 - 40 * index) * 0.004, 1)) * 40, 0)}px)`;
+        aboutWord.style.filter = `blur(${Math.max((1 - Math.min((current - 700 - 40 * index) * 0.004, 1)) * 4, 0)}px)`;
+      } else {
+        aboutWord.style.opacity = '0'
+        aboutWord.style.transform = `translateY(40px)`;
+      }
+    })
+  } else if (current > (window.innerWidth > 770 ? 2250 : 1650)) {
+    circle.style.opacity = '1'
+    aboutText.style.opacity = '0'
+  } else {
+    aboutWords.forEach((aboutWord) => {
+      circle.style.opacity = '1'
+      aboutWord.style.opacity = '0'
+    })
   }
 
   scrollContainer.style.marginTop = `${highGraph ? -current : -target}px`;
@@ -231,12 +314,15 @@ function animate(e) {
   })
   if (langTextCounter > 0) {
     langTextCounter -= 1;
-    bigLangText.style.opacity = "0";
+    // langGradient.style.opacity = "0";
+    langTextColumn.style.opacity = "0";
     if (langTextCounter < 30) {
       bigLangText.innerHTML = langText;
+      langDescription.innerHTML = langDesc;
     }
   } else {
-    bigLangText.style.opacity = "1";
+    // langGradient.style.opacity = "1";
+    langTextColumn.style.opacity = "1";
   }
 
   requestAnimationFrame(animate);

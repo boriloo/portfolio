@@ -37,11 +37,18 @@ function ProjectClick(project) {
     const pro = project.getAttribute('data-pro');
     configureModal(pro);
     modalView.classList.remove('modal-closed')
+    document.body.classList.add('locked')
+    sectionRow.style.opacity = "0";
+    sectionRow.style.pointerEvents = "none";
+    topSection.style.opacity = "0";
+    topSection.style.pointerEvents = "none";
+    graphMode.style.paddingBottom = "";
 }
 
 const closeModalIcon = document.querySelector('.close-modal-icon')
 closeModalIcon.addEventListener('click', () => {
     modalView.classList.add('modal-closed')
+    document.body.classList.remove('locked')
 })
 
 cvText.addEventListener('click', downloadCV);
