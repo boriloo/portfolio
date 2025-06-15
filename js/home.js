@@ -263,26 +263,24 @@ function animate(e) {
   }
 
   // WORDS APPEARING
-  if (current > (window.innerWidth > 770 ? 700 : 0) &&
-    current < (window.innerWidth > 770 ? 2250 : 1650)) {
-    circle.style.opacity = '0'
+  if ((highGraph ? current : target) > (window.innerWidth > 770 ? 700 : 300) &&
+    (highGraph ? current : target) < (window.innerWidth > 770 ? 1650 : 1350)) {
+    // circle.style.opacity = '0'
     aboutText.style.opacity = '1'
     aboutWords.forEach((aboutWord, index) => {
-      if (current > 700 + 40 * index) {
-        aboutWord.style.opacity = `${Math.min((current - 700 - 40 * index) * 0.004, 1)}`;
-        aboutWord.style.transform = `translateY(${Math.max((1 - Math.min((current - 700 - 40 * index) * 0.004, 1)) * 40, 0)}px)`;
-        aboutWord.style.filter = `blur(${Math.max((1 - Math.min((current - 700 - 40 * index) * 0.004, 1)) * 4, 0)}px)`;
+      if ((highGraph ? current : target) > (window.innerWidth > 770 ? 700 : 300) + 40 * index) {
+        aboutWord.style.opacity = `${Math.min(((highGraph ? current : target) - (window.innerWidth > 770 ? 700 : 300) - 40 * index) * 0.004, 1)}`;
+        aboutWord.style.transform = `translateY(${Math.max((1 - Math.min(((highGraph ? current : target) - (window.innerWidth > 770 ? 700 : 300) - 40 * index) * 0.004, 1)) * 40, 0)}px)`;
+        aboutWord.style.filter = `blur(${Math.max((1 - Math.min(((highGraph ? current : target) - (window.innerWidth > 770 ? 700 : 300) - 40 * index) * 0.004, 1)) * 4, 0)}px)`;
       } else {
         aboutWord.style.opacity = '0'
         aboutWord.style.transform = `translateY(40px)`;
       }
     })
-  } else if (current > (window.innerWidth > 770 ? 2250 : 1650)) {
-    circle.style.opacity = '1'
-    aboutText.style.opacity = '0'
+  } else if ((highGraph ? current : target) > (window.innerWidth > 770 ? 1650 : 1350)) {
+    aboutText.style.transform = `translateY(${(highGraph ? -current : -target) + (window.innerWidth > 770 ? 1650 : 1350) - aboutText.offsetHeight / 2}px) translateX(-50%)`;
   } else {
     aboutWords.forEach((aboutWord) => {
-      circle.style.opacity = '1'
       aboutWord.style.opacity = '0'
     })
   }
