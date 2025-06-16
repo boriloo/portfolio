@@ -1,6 +1,8 @@
-function MouseLeaveCircle() {
+function MouseLeaveCircle(text) {
     if (window.innerWidth > 770) {
         circle.style.transform = 'translate(-50%, -50%) scale(0)'
+        cursorText.style.opacity = '1'
+        cursorText.innerHTML = text
         document.body.classList.remove('no-cursor')
     }
 }
@@ -8,28 +10,30 @@ function MouseLeaveCircle() {
 function MouseEnterCircle() {
     if (window.innerWidth > 770) {
         circle.style.transform = 'translate(-50%, -50%) scale(1)'
+        cursorText.style.opacity = '0'
         document.body.classList.add('no-cursor')
     }
 }
 
-const langRow = document.querySelector('.lang-row');
-langRow.addEventListener('mouseleave', MouseEnterCircle)
-langRow.addEventListener('mouseenter', MouseLeaveCircle)
+langs.forEach((lang) => {
+    lang.addEventListener('mouseleave', MouseEnterCircle)
+    lang.addEventListener('mouseenter', () => MouseLeaveCircle('Clique!'))
+})
 const cvText = document.querySelector('.cv-text');
 cvText.addEventListener('mouseleave', MouseEnterCircle)
-cvText.addEventListener('mouseenter', MouseLeaveCircle)
+cvText.addEventListener('mouseenter', () => MouseLeaveCircle(''))
 sectionRow.addEventListener('mouseleave', MouseEnterCircle)
-sectionRow.addEventListener('mouseenter', MouseLeaveCircle)
+sectionRow.addEventListener('mouseenter', () => MouseLeaveCircle(''))
 projects.forEach((project) => {
     project.addEventListener('mouseleave', MouseEnterCircle)
-    project.addEventListener('mouseenter', MouseLeaveCircle)
+    project.addEventListener('mouseenter', () => MouseLeaveCircle('Ver detalhes'))
     project.addEventListener('click', () => { ProjectClick(project) });
 })
 
 const socials = document.querySelectorAll('.social');
 socials.forEach((social) => {
     social.addEventListener('mouseleave', MouseEnterCircle)
-    social.addEventListener('mouseenter', MouseLeaveCircle)
+    social.addEventListener('mouseenter', () => MouseLeaveCircle(''))
 })
 
 const modalView = document.querySelector('.modal-view')
@@ -61,3 +65,9 @@ function downloadCV() {
     link.click();
     document.body.removeChild(link);
 }
+
+const workCards = document.querySelectorAll('.work-card');
+workCards.forEach((workCard) => {
+    workCard.addEventListener('mouseleave', MouseEnterCircle)
+    workCard.addEventListener('mouseenter', () => MouseLeaveCircle(''))
+})

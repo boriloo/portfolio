@@ -2,8 +2,9 @@ const lastElement = document.querySelector(".footer");
 const distance = lastElement.getBoundingClientRect().top + window.scrollY;
 const realDistance = lastElement.offsetHeight + distance;
 const fakeScroll = document.querySelector(".fake-scroll");
-fakeScroll.style.height = `${realDistance + 100}px`;
+fakeScroll.style.height = `${realDistance + 95}px`;
 const circle = document.querySelector(".cursor-ball");
+const cursorText = document.querySelector(".cursor-text");
 const sectionRow = document.querySelector(".sections");
 const topSection = document.querySelector(".top-section");
 const scrollContainer = document.querySelector(".scroll-container");
@@ -166,6 +167,10 @@ langs.forEach((lang) => {
   lang.addEventListener("click", () => {
     langTextCounter = 60;
     langText = lang.innerHTML;
+    langs.forEach((lang) => {
+      lang.classList.remove('selected')
+    })
+    lang.classList.add('selected')
     switch (lang.innerHTML) {
       case "HTML":
         langDesc = 'Estrutura base de qualquer página web. Define o conteúdo e a hierarquia dos elementos.';
@@ -245,6 +250,12 @@ const ease = 0.08;
 const projects = document.querySelectorAll('.projeto');
 
 
+const sectionOne = document.querySelector('.section-1')
+const sectionAbout = document.querySelector('.section-about')
+const sectionTwo = document.querySelector('.section-2')
+
+const tillAboutSection = sectionAbout.getBoundingClientRect().top + sectionAbout.offsetHeight - 100
+const tillSectionTwo = sectionTwo.getBoundingClientRect().top - (window.innerWidth > 500 ? 850 : 850)
 
 function animate(e) {
   offsetX += velocityX;
@@ -262,23 +273,24 @@ function animate(e) {
     current += diff * ease;
   }
 
+
   // WORDS APPEARING
-  if ((highGraph ? current : target) > (window.innerWidth > 770 ? 700 : 300) &&
-    (highGraph ? current : target) < (window.innerWidth > 770 ? 1650 : 1350)) {
+  if ((highGraph ? current : target) > tillAboutSection &&
+    (highGraph ? current : target) < tillSectionTwo) {
     // circle.style.opacity = '0'
     aboutText.style.opacity = '1'
     aboutWords.forEach((aboutWord, index) => {
-      if ((highGraph ? current : target) > (window.innerWidth > 770 ? 700 : 300) + 40 * index) {
-        aboutWord.style.opacity = `${Math.min(((highGraph ? current : target) - (window.innerWidth > 770 ? 700 : 300) - 40 * index) * 0.004, 1)}`;
-        aboutWord.style.transform = `translateY(${Math.max((1 - Math.min(((highGraph ? current : target) - (window.innerWidth > 770 ? 700 : 300) - 40 * index) * 0.004, 1)) * 40, 0)}px)`;
-        aboutWord.style.filter = `blur(${Math.max((1 - Math.min(((highGraph ? current : target) - (window.innerWidth > 770 ? 700 : 300) - 40 * index) * 0.004, 1)) * 4, 0)}px)`;
+      if ((highGraph ? current : target) > tillAboutSection + 40 * index) {
+        aboutWord.style.opacity = `${Math.min(((highGraph ? current : target) - tillAboutSection - 40 * index) * 0.004, 1)}`;
+        aboutWord.style.transform = `translateY(${Math.max((1 - Math.min(((highGraph ? current : target) - tillAboutSection - 40 * index) * 0.004, 1)) * 40, 0)}px)`;
+        aboutWord.style.filter = `blur(${Math.max((1 - Math.min(((highGraph ? current : target) - tillAboutSection - 40 * index) * 0.004, 1)) * 4, 0)}px)`;
       } else {
         aboutWord.style.opacity = '0'
         aboutWord.style.transform = `translateY(40px)`;
       }
     })
-  } else if ((highGraph ? current : target) > (window.innerWidth > 770 ? 1650 : 1350)) {
-    aboutText.style.transform = `translateY(${(highGraph ? -current : -target) + (window.innerWidth > 770 ? 1650 : 1350) - aboutText.offsetHeight / 2}px) translateX(-50%)`;
+  } else if ((highGraph ? current : target) > tillSectionTwo) {
+    aboutText.style.transform = `translateY(${(highGraph ? -current : -target) + tillSectionTwo - aboutText.offsetHeight / 2}px) translateX(-50%)`;
   } else {
     aboutWords.forEach((aboutWord) => {
       aboutWord.style.opacity = '0'
@@ -296,6 +308,8 @@ function animate(e) {
   }
   circle.style.left = `${highGraph ? finalX : mouseX}px`;
   circle.style.top = `${highGraph ? finalY : mouseY}px`;
+  cursorText.style.left = `${highGraph ? finalX : mouseX}px`;
+  cursorText.style.top = `${highGraph ? finalY : mouseY}px`;
   if (highGraph)
     circle.style.filter = `blur(${Math.abs(finalX - mouseX) * 0.08}px)`;
   projects.forEach((project) => {
