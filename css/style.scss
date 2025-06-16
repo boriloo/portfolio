@@ -504,15 +504,15 @@ body {
 }
 
 .cursor-text {
-  mix-blend-mode: difference;
   pointer-events: none;
   transition: opacity 0.3s;
-  color: white;
+  color: var(--text-color);
   position: fixed;
   font-size: 18px;
   opacity: 0;
   z-index: 10;
   transform: translate(15px, 20px);
+  filter: drop-shadow(0px 0px 3px var(--bg-color));
 }
 
 .cursor-ball {
@@ -796,7 +796,7 @@ main {
       .big-lang-text {
         color: var(--bg-color);
         font-family: Bebas Neue;
-        font-size: clamp(60px, 10vw, 100px);
+        font-size: clamp(55px, 10vw, 100px);
         font-weight: 700;
         text-shadow: 2px 2px 0 var(--text-color), -2px -2px 0 var(--text-color),
           2px -2px 0 var(--text-color), -2px 2px 0 var(--text-color);
@@ -910,6 +910,7 @@ main {
       .work-card:hover {
         background-color: var(--text-color);
 
+
         i {
           border: 1px solid var(--bg-70-color);
           color: var(--bg-color);
@@ -929,7 +930,7 @@ main {
   }
 
   .section-3 {
-    margin-top: 100px;
+    margin-top: 50px;
     gap: 20px;
     justify-content: center;
     align-items: center;
@@ -1206,6 +1207,10 @@ footer {
         text-align: center;
       }
     }
+  }
+
+  .cursor-text {
+    display: none;
   }
 
   .cursor-ball {
