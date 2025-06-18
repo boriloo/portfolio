@@ -1,9 +1,11 @@
 const modalContent = document.querySelector('.modal-content')
 const modalImg = document.querySelector('.modal-img')
+const modalLink = document.querySelector('.modal-link')
 function configureModal(data) {
     switch (data) {
         case 'nb':
             modalImg.src = './assets/images/NB_display.png'
+            modalLink.href = 'https://boriloo.github.io/Contabilidade/';
             modalContent.innerHTML =
                 `<h1>Site Institucional – NovaBalança Contabilidade</h1>
                     <div class="row">

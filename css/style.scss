@@ -237,7 +237,7 @@ body {
         }
       }
 
-      button {
+      .modal-link {
         border: none;
         background-color: var(--text-color);
         font-size: 20px;
@@ -261,7 +261,7 @@ body {
         }
       }
 
-      button:hover {
+      .modal-link:hover {
         background-color: transparent;
         border: 1px solid var(--text-color);
         color: var(--text-color);
@@ -652,6 +652,7 @@ main {
     flex-wrap: wrap;
     align-items: center;
 
+
     h1 {
       text-align: center;
       font-family: Bebas Neue;
@@ -883,6 +884,7 @@ main {
           font-size: 40px;
           border: 1px solid var(--text-70-color);
           border-radius: 50%;
+          pointer-events: none;
         }
 
         .column {

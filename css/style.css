@@ -231,7 +231,7 @@ body {
   cursor: text;
   color: var(--text-color);
 }
-.modal-view .modal .coluna-2 button {
+.modal-view .modal .coluna-2 .modal-link {
   border: none;
   background-color: var(--text-color);
   font-size: 20px;
@@ -246,19 +246,19 @@ body {
   align-items: end;
   gap: 5px;
 }
-.modal-view .modal .coluna-2 button i {
+.modal-view .modal .coluna-2 .modal-link i {
   font-size: 22px;
   color: var(--bg-color);
   position: static;
   padding: 0;
   pointer-events: none;
 }
-.modal-view .modal .coluna-2 button:hover {
+.modal-view .modal .coluna-2 .modal-link:hover {
   background-color: transparent;
   border: 1px solid var(--text-color);
   color: var(--text-color);
 }
-.modal-view .modal .coluna-2 button:hover i {
+.modal-view .modal .coluna-2 .modal-link:hover i {
   color: var(--text-color);
 }
 
@@ -772,6 +772,7 @@ main .section-work .card-row .work-card i {
   font-size: 40px;
   border: 1px solid var(--text-70-color);
   border-radius: 50%;
+  pointer-events: none;
 }
 main .section-work .card-row .work-card .column {
   gap: 5px;

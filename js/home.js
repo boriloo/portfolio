@@ -17,6 +17,21 @@ if (window.innerWidth < 770) {
   document.body.classList.remove('no-cursor')
 }
 
+let resizeTimeout;
+let lastWidth = window.innerWidth;
+
+window.addEventListener('resize', function () {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(function () {
+    const currentWidth = window.innerWidth;
+
+    if (currentWidth !== lastWidth) {
+      window.location.reload();
+    }
+
+    lastWidth = currentWidth;
+  }, 300);
+});
 
 const graphIcon = document.querySelector(".graph-icon");
 const graphMode = document.querySelector(".graph-mode");
