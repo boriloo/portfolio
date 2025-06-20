@@ -5,7 +5,7 @@ function configureModal(data) {
     switch (data) {
         case 'nb':
             modalImg.src = './assets/images/NB_display.png'
-            modalLink.href = 'https://boriloo.github.io/Contabilidade/';
+            modalLink.href = 'https://boriloo.github.io/NovaBalanca-Contabilidade/';
             modalContent.innerHTML =
                 `<h1>Site Institucional – NovaBalança Contabilidade</h1>
                     <div class="row">
@@ -31,6 +31,7 @@ function configureModal(data) {
             break;
         case 'lol':
             modalImg.src = './assets/images/LOL_display.png'
+            modalLink.href = 'https://boriloo.github.io/Runeterra-Regions/';
             modalContent.innerHTML =
                 `<h1>League of Legends - Regiões de Runeterra</h1>
                     <div class="row">

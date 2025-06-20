@@ -17,6 +17,16 @@ if (window.innerWidth < 770) {
   document.body.classList.remove('no-cursor')
 }
 
+const popup = document.querySelector('.popup')
+const popupText = document.querySelector('.popup-text')
+function togglePopup(text) {
+  popupText.innerHTML = text
+  popup.classList.remove('pop-anim')
+  setTimeout(() => {
+    popup.classList.add('pop-anim')
+  }, 10)
+}
+
 let resizeTimeout;
 let lastWidth = window.innerWidth;
 
@@ -41,6 +51,7 @@ if (window.innerWidth < 500) {
 graphIcon.addEventListener("click", () => {
   if (highGraph) {
     // ECONOMIA
+    togglePopup("Efeitos desativados")
     localStorage.setItem("graph", "low");
     circle.style.filter = `blur(0px)`;
     scrollContainer.style.filter = `blur(0px)`;
@@ -48,6 +59,7 @@ graphIcon.addEventListener("click", () => {
     graphIcon.classList.add("bi-star-fill");
   } else {
     // GRÁFICO
+    togglePopup("Efeitos ativados")
     localStorage.setItem("graph", "high");
     graphIcon.classList.add("bi-stars");
     graphIcon.classList.remove("bi-star-fill");

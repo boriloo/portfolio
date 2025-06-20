@@ -71,3 +71,15 @@ workCards.forEach((workCard) => {
     workCard.addEventListener('mouseleave', MouseEnterCircle)
     workCard.addEventListener('mouseenter', () => MouseLeaveCircle(''))
 })
+
+const emailBtn = document.querySelector('.email-btn')
+emailBtn.addEventListener('click', () => {
+    togglePopup('Email copiado para área de transferência')
+    const text = 'muriloomartins00@gmail.com';
+    navigator.clipboard.writeText(text)
+        .then(() => alert('Texto copiado!'))
+        .catch(err => console.error('Erro ao copiar: ', err));
+})
+
+
+
