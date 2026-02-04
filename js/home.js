@@ -307,7 +307,7 @@ function animate(e) {
     // circle.style.opacity = '0'
     aboutText.style.opacity = '1'
     aboutWords.forEach((aboutWord, index) => {
-      if ((highGraph ? current : target) > tillAboutSection + 33 * index) {
+      if ((highGraph ? current : target) > tillAboutSection + 40 * index) {
         aboutWord.style.opacity = `${Math.min(((highGraph ? current : target) - tillAboutSection - 40 * index) * 0.004, 1)}`;
         aboutWord.style.transform = `translateY(${Math.max((1 - Math.min(((highGraph ? current : target) - tillAboutSection - 40 * index) * 0.004, 1)) * 40, 0)}px)`;
         aboutWord.style.filter = `blur(${Math.max((1 - Math.min(((highGraph ? current : target) - tillAboutSection - 40 * index) * 0.004, 1)) * 4, 0)}px)`;

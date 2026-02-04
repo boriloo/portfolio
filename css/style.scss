@@ -68,6 +68,7 @@ i.bi:hover {
   padding: 0;
   box-sizing: border-box;
   font-family: Inter;
+  transition: color 1s;
 }
 
 html {
@@ -415,6 +416,8 @@ body {
   justify-content: start;
   transition: 0.3s;
 
+
+
   h1 {
     margin: 10px;
     background-color: var(--bg-color);
@@ -678,6 +681,13 @@ main {
     min-height: 90vh;
     gap: 30px;
 
+    .face-row {
+      width: 100%;
+      gap: 2px;
+      display: flex;
+      align-items: end;
+    }
+
     .column {
       gap: 20px;
       align-items: start;
@@ -685,7 +695,7 @@ main {
 
       h1 {
         text-align: start;
-        font-size: clamp(25px, 5vw, 55px);
+        font-size: clamp(20px, 5vw, 55px);
         font-weight: 300;
         color: var(--text-color);
 
@@ -1199,7 +1209,7 @@ footer {
 
   main {
     .section-1 {
-      padding: 0px 0px 0px 300px;
+      padding: 20px;
     }
 
     .section-2 {
@@ -1234,7 +1244,7 @@ footer {
 
   main {
     .section-1 {
-      padding: 0px 0px 0px 250px;
+      padding: 20px;
     }
 
     .section-2 {
@@ -1267,8 +1277,9 @@ footer {
 
   main {
     .section-1 {
+      margin-top: 50px;
       min-height: 50vh;
-      padding: 0px 0px 0px 20px;
+      padding: 20px;
 
       .column {
         h1 {

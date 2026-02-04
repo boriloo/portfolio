@@ -67,6 +67,7 @@ i.bi:hover {
   padding: 0;
   box-sizing: border-box;
   font-family: Inter;
+  transition: color 1s;
 }
 
 html {
@@ -617,6 +618,12 @@ main .section-1 {
   min-height: 90vh;
   gap: 30px;
 }
+main .section-1 .face-row {
+  width: 100%;
+  gap: 2px;
+  display: flex;
+  align-items: end;
+}
 main .section-1 .column {
   gap: 20px;
   align-items: start;
@@ -624,7 +631,7 @@ main .section-1 .column {
 }
 main .section-1 .column h1 {
   text-align: start;
-  font-size: clamp(25px, 5vw, 55px);
+  font-size: clamp(20px, 5vw, 55px);
   font-weight: 300;
   color: var(--text-color);
 }
@@ -1019,7 +1026,7 @@ footer nav .socials-column .social:hover div p {
     opacity: 0.6;
   }
   main .section-1 {
-    padding: 0px 0px 0px 300px;
+    padding: 20px;
   }
   main .section-2 {
     flex-direction: column;
@@ -1043,7 +1050,7 @@ footer nav .socials-column .social:hover div p {
     opacity: 0.3;
   }
   main .section-1 {
-    padding: 0px 0px 0px 250px;
+    padding: 20px;
   }
   main .section-2 .project-row {
     justify-content: center;
@@ -1061,8 +1068,9 @@ footer nav .socials-column .social:hover div p {
     display: none;
   }
   main .section-1 {
+    margin-top: 50px;
     min-height: 50vh;
-    padding: 0px 0px 0px 20px;
+    padding: 20px;
   }
   main .section-1 .column h1 {
     font-size: 50px;
