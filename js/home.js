@@ -281,7 +281,7 @@ const sectionOne = document.querySelector('.section-1')
 const sectionAbout = document.querySelector('.section-about')
 const sectionTwo = document.querySelector('.section-2')
 
-const tillAboutSection = sectionAbout.getBoundingClientRect().top + sectionAbout.offsetHeight - 100
+const tillAboutSection = sectionAbout.getBoundingClientRect().top + sectionAbout.offsetHeight - 400
 const tillSectionTwo = sectionTwo.getBoundingClientRect().top - (window.innerWidth > 500 ? 850 : 850)
 
 function animate(e) {
@@ -307,7 +307,7 @@ function animate(e) {
     // circle.style.opacity = '0'
     aboutText.style.opacity = '1'
     aboutWords.forEach((aboutWord, index) => {
-      if ((highGraph ? current : target) > tillAboutSection + 40 * index) {
+      if ((highGraph ? current : target) > tillAboutSection + 33 * index) {
         aboutWord.style.opacity = `${Math.min(((highGraph ? current : target) - tillAboutSection - 40 * index) * 0.004, 1)}`;
         aboutWord.style.transform = `translateY(${Math.max((1 - Math.min(((highGraph ? current : target) - tillAboutSection - 40 * index) * 0.004, 1)) * 40, 0)}px)`;
         aboutWord.style.filter = `blur(${Math.max((1 - Math.min(((highGraph ? current : target) - tillAboutSection - 40 * index) * 0.004, 1)) * 4, 0)}px)`;
@@ -327,12 +327,12 @@ function animate(e) {
   scrollContainer.style.marginTop = `${highGraph ? -current : -target}px`;
   if (highGraph)
     scrollContainer.style.filter = `blur(${Math.abs(diff) * 0.02}px)`;
-  if (window.innerWidth > 770) {
-    topText.style.transform = `perspective(25vi) rotateY(${25 - (highGraph ? current : target) * 0.03
-      }deg)`;
-  } else {
-    topText.style.transform = `perspective(0) rotateY(0deg)`;
-  }
+  // if (window.innerWidth > 770) {
+  //   topText.style.transform = `perspective(25vi) rotateY(${25 - (highGraph ? current : target) * 0.03
+  //     }deg)`;
+  // } else {
+  //   topText.style.transform = `perspective(0) rotateY(0deg)`;
+  // }
   circle.style.left = `${highGraph ? finalX : mouseX}px`;
   circle.style.top = `${highGraph ? finalY : mouseY}px`;
   cursorText.style.left = `${highGraph ? finalX : mouseX}px`;
