@@ -301,28 +301,34 @@ function animate(e) {
   }
 
 
+  let windowHeight = window.innerHeight;
+  let stepDelay = windowHeight * 0.05;
+
   // WORDS APPEARING
-  if ((highGraph ? current : target) > tillAboutSection &&
-    (highGraph ? current : target) < tillSectionTwo) {
+  if ((highGraph ? current : target) > (tillAboutSection - (stepDelay * 2)) &&
+    (highGraph ? current : target) < tillSectionTwo + stepDelay) {
+
+    console.log(windowHeight)
+
     // circle.style.opacity = '0'
     aboutText.style.opacity = '1'
+
     aboutWords.forEach((aboutWord, index) => {
-      if ((highGraph ? current : target) > tillAboutSection + 40 * index) {
-        aboutWord.style.opacity = `${Math.min(((highGraph ? current : target) - tillAboutSection - 40 * index) * 0.004, 1)}`;
-        aboutWord.style.transform = `translateY(${Math.max((1 - Math.min(((highGraph ? current : target) - tillAboutSection - 40 * index) * 0.004, 1)) * 40, 0)}px)`;
-        aboutWord.style.filter = `blur(${Math.max((1 - Math.min(((highGraph ? current : target) - tillAboutSection - 40 * index) * 0.004, 1)) * 4, 0)}px)`;
-      } else {
-        aboutWord.style.opacity = '0'
-        aboutWord.style.transform = `translateY(40px)`;
-      }
+
+      aboutWord.style.opacity = `${((highGraph ? current : target) - (tillAboutSection - (stepDelay * 2)) - (stepDelay * index)) * 0.004}`;
+      aboutWord.style.transform = `translateY(${`${((highGraph ? current : target) - (tillAboutSection - (stepDelay * 2)) - (stepDelay * index)) * 0.004}`}px)`;
+      aboutWord.style.filter = `blur(${`${1.7 - (((highGraph ? current : target) - (tillAboutSection - (stepDelay * 2)) - (stepDelay * index)) * 0.004)}`}px)`;
+
     })
-  } else if ((highGraph ? current : target) > tillSectionTwo) {
-    aboutText.style.transform = `translateY(${(highGraph ? -current : -target) + tillSectionTwo - aboutText.offsetHeight / 2}px) translateX(-50%)`;
+  } else if ((highGraph ? current : target) > tillSectionTwo + stepDelay) {
+    aboutText.style.transform = `translateY(${(highGraph ? -current : -target) + tillSectionTwo + stepDelay - aboutText.offsetHeight / 2}px) translateX(-50%)`;
   } else {
     aboutWords.forEach((aboutWord) => {
       aboutWord.style.opacity = '0'
     })
   }
+
+
 
   scrollContainer.style.marginTop = `${highGraph ? -current : -target}px`;
   if (highGraph)
