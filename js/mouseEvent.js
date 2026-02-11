@@ -1,3 +1,9 @@
+const langMode = document.querySelector('.lang-mode');
+
+function getTranslation(key) {
+    return translations[currentLang][key] || key;
+}
+
 function MouseLeaveCircle(text) {
     if (window.innerWidth > 770) {
         circle.style.transform = 'translate(-50%, -50%) scale(0)'
@@ -17,17 +23,20 @@ function MouseEnterCircle() {
 
 langs.forEach((lang) => {
     lang.addEventListener('mouseleave', MouseEnterCircle)
-    lang.addEventListener('mouseenter', () => MouseLeaveCircle('Clique!'))
+    lang.addEventListener('mouseenter', () => MouseLeaveCircle(getTranslation('mouse.click')))
 })
+
 const cvText = document.querySelector('.cv-text');
 cvText.addEventListener('mouseleave', MouseEnterCircle)
 cvText.addEventListener('mouseenter', () => MouseLeaveCircle(''))
+
 sectionRow.addEventListener('mouseleave', MouseEnterCircle)
 sectionRow.addEventListener('mouseenter', () => MouseLeaveCircle(''))
+
 projects.forEach((project) => {
     project.addEventListener('mouseleave', MouseEnterCircle)
-    project.addEventListener('mouseenter', () => MouseLeaveCircle('Ver detalhes'))
-    project.addEventListener('click', () => { ProjectClick(project) });
+    project.addEventListener('mouseenter', () => MouseLeaveCircle(getTranslation('mouse.details')))
+    project.addEventListener('click', () => { ProjectClick(project); langMode.classList.add('hidden') });
 })
 
 const socials = document.querySelectorAll('.social');
@@ -51,6 +60,7 @@ function ProjectClick(project) {
 
 const closeModalIcon = document.querySelector('.close-modal-icon')
 closeModalIcon.addEventListener('click', () => {
+    langMode.classList.remove('hidden')
     modalView.classList.add('modal-closed')
     document.body.classList.remove('locked')
 })
@@ -74,10 +84,7 @@ workCards.forEach((workCard) => {
 
 const emailBtn = document.querySelector('.email-btn')
 emailBtn.addEventListener('click', () => {
-    togglePopup('Email copiado para área de transferência')
+    togglePopup(getTranslation('popup.emailCopied'))
     const text = 'muriloomartins00@gmail.com';
     navigator.clipboard.writeText(text)
 })
-
-
-

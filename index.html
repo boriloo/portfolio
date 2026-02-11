@@ -7,37 +7,37 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="css/style.css" />
   <script src="https://unpkg.com/lottie-web@5.7.6/build/player/lottie.min.js"></script>
-  <title>Portfolio</title>
+  <title data-i18n="page.title">Portfolio</title>
 </head>
 
-<!-- <body class="no-cursor">
+<body class="no-cursor">
   <div class="loading-view">
     <h1>M</h1>
     <div class="loading-svg"></div>
     <div class="wall" style="left: 0"></div>
     <div class="wall" style="right: 0"></div>
-  </div> -->
+  </div>
 
-<h1 class="copyright">© murilo martins</h1>
+<h1 class="copyright" data-i18n="footer.copyright">© murilo martins</h1>
 
 <div class="about-text">
-  <div class="about-word">Sou</div>
-  <div class="about-word">o</div>
-  <div class="about-word">Dev</div>
-  <div class="about-word">que</div>
-  <div class="about-word">pode</div>
-  <div class="about-word">levar</div>
-  <div class="about-word">seu</div>
-  <div class="about-word">projeto</div>
-  <div class="about-word">de</div>
-  <div class="about-word" style="color: rgb(99, 99, 99);">LEGAL</div>
-  <div class="about-word">para</div>
-  <div class="about-word" style="font-style: italic;">incrível.</div>
+  <div class="about-word" data-i18n="hero.word1">Sou</div>
+  <div class="about-word" data-i18n="hero.word2">o</div>
+  <div class="about-word" data-i18n="hero.word3">Dev</div>
+  <div class="about-word" data-i18n="hero.word4">que</div>
+  <div class="about-word" data-i18n="hero.word5">pode</div>
+  <div class="about-word" data-i18n="hero.word6">levar</div>
+  <div class="about-word" data-i18n="hero.word7">seu</div>
+  <div class="about-word" data-i18n="hero.word8">projeto</div>
+  <div class="about-word" data-i18n="hero.word9">de</div>
+  <div class="about-word" data-i18n="hero.word10" style="color: rgb(99, 99, 99);">LEGAL</div>
+  <div class="about-word" data-i18n="hero.word11">para</div>
+  <div class="about-word" data-i18n="hero.word12" style="font-style: italic;">incrível.</div>
 </div>
 
 <div class="popup-view">
   <div class="popup">
-    <h1 class="popup-text">opa</h1>
+    <h1 class="popup-text" data-i18n="popup.greeting">opa</h1>
   </div>
 </div>
 
@@ -53,7 +53,7 @@
     <div class="coluna-2 column">
       <div class="column modal-content"></div>
       <a class="modal-link" target="_blank">
-        Visitar <i class="bi bi-arrow-up-right-circle-fill"></i>
+        <span data-i18n="modal.visit">Visitar</span> <i class="bi bi-arrow-up-right-circle-fill"></i>
       </a>
     </div>
   </div>
@@ -61,6 +61,10 @@
 
 <div class="color-mode">
   <i class="mode-icon bi bi-sun"></i>
+</div>
+
+<div class="lang-mode">
+  <i class="inner-lang"></i>
 </div>
 
 <div class="graph-mode">
@@ -73,28 +77,28 @@
 
 <section class="top-section">
   <h1 class="cv-text">
-    Baixar CV <i class="bi bi-file-earmark-arrow-down"></i>
+    <span data-i18n="header.downloadCV">Baixar CV</span> <i class="bi bi-file-earmark-arrow-down"></i>
   </h1>
 </section>
 
 <section class="section-row row">
   <div class="sections row">
     <div class="column" id="sob">
-      <h1>Sobre</h1>
+      <h1 data-i18n="nav.about">Sobre</h1>
       <div class="line"></div>
     </div>
     <div class="column" id="hab">
-      <h1>Habilidades</h1>
+      <h1 data-i18n="nav.skills">Habilidades</h1>
       <div class="line"></div>
     </div>
     <div class="column" id="pro">
-      <h1>Projetos</h1>
+      <h1 data-i18n="nav.projects">Projetos</h1>
       <div class="line"></div>
     </div>
   </div>
 </section>
 
-<div class="cursor-text">Eu não deveria estar aparecendo...</div>
+<div class="cursor-text" data-i18n="cursor.error">Eu não deveria estar aparecendo...</div>
 
 <div class="fake-scroll"></div>
 
@@ -114,10 +118,10 @@
           </a>
         </div>
 
-        <h1>
+        <h1 data-i18n="intro.greeting">
           Prazer, sou Murilo Martins
         </h1>
-        <p>Sou um desenvolvedor full-stack especializado em React/Next.js e Node.js, com experiência em
+        <p data-i18n="intro.description">Sou um desenvolvedor full-stack especializado em React/Next.js e Node.js, com experiência em
           desenvolvimento de aplicações de nível comercial, com a melhor experiência possível.</p>
       </div>
     </section>
@@ -129,7 +133,7 @@
 
     <section class="section section-2 column">
       <div class="column lang-column">
-        <h1>Tecnologias</h1>
+        <h1 data-i18n="skills.title">Tecnologias</h1>
         <div class="row lang-row">
           <div class="lang" data-lang="html">HTML</div>
           <div class="lang" data-lang="css">CSS</div>
@@ -148,19 +152,19 @@
         </div>
       </div>
       <div class="lang-text-column column">
-        <h1 class="big-lang-text">CONTROLE</h1>
-        <p class="lang-description">Qualquer tecnologia que precisar.</p>
+        <h1 class="big-lang-text" data-i18n="skills.mastery">CONTROLE</h1>
+        <p class="lang-description" data-i18n="skills.subtitle">Qualquer tecnologia que precisar.</p>
       </div>
     </section>
 
 
     <section class="section section-3 column">
-      <h1>Projetos</h1>
+      <h1 data-i18n="projects.title">Projetos</h1>
       <div class="row">
         <div class="projeto column" data-pro="nb">
           <div class="img" style="background-image: url(assets/images/NB_project.png)">
             <div class="hover-container">
-              <h1>NovaBalança - Contabilidade</h1>
+              <h1 data-i18n="projects.nb.title">NovaBalança - Contabilidade</h1>
               <div class="row">
                 <p>HTML</p>
                 <p>SCSS</p>
@@ -173,7 +177,7 @@
         <div class="projeto column" data-pro="lol">
           <div class="img" style="background-image: url(assets/images/LOL_project.png)">
             <div class="hover-container">
-              <h1>LoL - Regiões de Runeterra</h1>
+              <h1 data-i18n="projects.lol.title">LoL - Regiões de Runeterra</h1>
               <div class="row">
                 <p>HTML</p>
                 <p>CSS</p>
@@ -187,7 +191,7 @@
   </main>
   <footer class="footer">
     <nav>
-      <h1>Contato</h1>
+      <h1 data-i18n="contact.title">Contato</h1>
       <div class="socials-column column">
         <a href="https://www.linkedin.com/in/murilomartins53" target="_blank" class="social row">
           <i class="bi bi-linkedin"></i>
