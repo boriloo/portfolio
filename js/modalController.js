@@ -8,7 +8,7 @@ function configureModal(data) {
             modalImg.src = './assets/images/CTRL_display.png'
             modalLink.href = 'https://github.com/boriloo/Control';
             modalContent.innerHTML =
-                `<h1>${getTranslation('modal.ctrlb.title')}</h1>
+                `<h1>${getTranslation('modal.ctrl.title')}</h1>
                     <div class="row">
                         <div class="row">
                             <p>REACT</p>
