@@ -4,6 +4,27 @@ const modalLink = document.querySelector('.modal-link')
 
 function configureModal(data) {
     switch (data) {
+        case 'ctrl':
+            modalImg.src = './assets/images/CTRL_display.png'
+            modalLink.href = 'https://github.com/boriloo/Control';
+            modalContent.innerHTML =
+                `<h1>${getTranslation('modal.ctrlb.title')}</h1>
+                    <div class="row">
+                        <div class="row">
+                            <p>REACT</p>
+                            <p>TYPESCRIPT</p>
+                            <p>NODE.JS</p>
+                            <p>EXPRESS</p>
+                            <p>TAILWIND</p>
+                            <p>POSTGRESQL</p>
+                            <p>PRISMA</p>
+                            <p>UI/UX</p>
+                        </div>
+                    </div>
+                    <p>${getTranslation('modal.ctrl.p1')}</p>
+                    <p>${getTranslation('modal.ctrl.p2')}</p>
+                    <p>${getTranslation('modal.ctrl.p3')}</p>`
+            break;
         case 'nb':
             modalImg.src = './assets/images/NB_display.png'
             modalLink.href = 'https://boriloo.github.io/NovaBalanca-Contabilidade/';
