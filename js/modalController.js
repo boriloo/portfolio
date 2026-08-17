@@ -6,18 +6,18 @@ function configureModal(data) {
     switch (data) {
         case 'ctrl':
             modalImg.src = './assets/images/CTRL_display.png'
-            modalLink.href = 'https://github.com/boriloo/Control';
+            modalLink.href = 'https://contoru.vercel.app/';
             modalContent.innerHTML =
                 `<h1>${getTranslation('modal.ctrl.title')}</h1>
                     <div class="row">
                         <div class="row">
-                            <p>REACT</p>
+                         <p>REACT</p>
                             <p>TYPESCRIPT</p>
-                            <p>NODE.JS</p>
-                            <p>EXPRESS</p>
+                            <p>HONO</p>
+                            <p>CLOUDFLARE</p>
+                            <p>SUPABASE</p>
                             <p>TAILWIND</p>
                             <p>POSTGRESQL</p>
-                            <p>PRISMA</p>
                             <p>UI/UX</p>
                         </div>
                     </div>

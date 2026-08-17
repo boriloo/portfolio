@@ -95,17 +95,17 @@ const translations = {
     'skills.figma': 'Ferramenta online de design de interface e prototipagem, muito usada para criar layouts e fluxos de navegação.',
     'skills.default': 'Escolha uma tecnologia',
     'projects.title': 'Projetos',
-    'projects.ctrl.title': 'Control - Desktop Online',
+    'projects.ctrl.title': 'Contoru - Desktop Online',
     'projects.nb.title': 'NovaBalança - Contabilidade',
     'projects.lol.title': 'LoL - Regiões de Runeterra',
     'contact.title': 'Contato',
     'mouse.click': 'Clique!',
     'mouse.details': 'Ver detalhes',
     'popup.emailCopied': 'Email copiado para área de transferência',
-    'modal.ctrl.title': 'Control - Online Desktop Workspace',
-    'modal.ctrl.p1': 'Uma plataforma web que traz a experiência de desktop para o navegador, permitindo que usuários organizem links, arquivos e pastas visualmente — inspirada na interface do Windows.',
-    'modal.ctrl.p2': 'Apresenta múltiplas áreas de trabalho customizáveis com ícones arrastáveis, navegação recursiva de pastas, detecção automática de favicon para links e filtros de aparência, incluindo desfoque, escurecimento e saturação.',
-    'modal.ctrl.p3': 'Desenvolvido com React, TypeScript, Node.js, Express, Prisma e PostgreSQL.',
+    'modal.ctrl.title': 'Contoru - Desktop Online',
+    'modal.ctrl.p1': 'Uma plataforma web que transforma o navegador em um ambiente de desktop visual, permitindo organizar links e pastas de forma livre e personalizada. Cada desktop pode ter seu próprio nome, plano de fundo e disposição de ícones.',
+    'modal.ctrl.p2': 'Os desktops podem ser pessoais ou compartilhados, permitindo convidar outras pessoas para colaborar no mesmo ambiente. Links são identificados automaticamente por domínio, com favicon e pré-visualizações quando disponíveis, enquanto a busca permite encontrar itens mesmo dentro de pastas.',
+    'modal.ctrl.p3': 'O projeto foi desenvolvido com foco em uma experiência visual e interativa, com ícones arrastáveis, janelas, animações, personalização de aparência e navegação hierárquica entre pastas.',
     'modal.nb.title': 'Site Institucional – NovaBalança Contabilidade',
     'modal.nb.p1': 'Desenvolvimento de site institucional para um escritório de contabilidade com foco em abertura de empresas.',
     'modal.nb.p2': 'O projeto apresenta uma linguagem acessível, moderna e voltada ao público empreendedor, destacando diferenciais como abertura gratuita de CNPJ em até 24h, atendimento humanizado e digitalização dos processos contábeis.',
@@ -161,17 +161,17 @@ const translations = {
     'skills.figma': 'Online interface design and prototyping tool, widely used to create layouts and navigation flows.',
     'skills.default': 'Choose a technology',
     'projects.title': 'Projects',
-    'projects.ctrl.title': 'Control - Online Desktop',
+    'projects.ctrl.title': 'Contoru - Online Desktop',
     'projects.nb.title': 'NovaBalança - Accounting',
     'projects.lol.title': 'LoL - Regions of Runeterra',
     'contact.title': 'Contact',
     'mouse.click': 'Click!',
     'mouse.details': 'View details',
     'popup.emailCopied': 'Email copied to clipboard',
-    'modal.ctrl.title': 'Control - Online Desktop Workspace',
-    'modal.ctrl.p1': 'A web platform that brings the desktop experience to the browser, allowing users to organize links, files and folders visually — inspired by the Windows interface.',
-    'modal.ctrl.p2': 'Features multiple customizable desktops with drag and drop icons, recursive folder navigation, automatic favicon detection for links, and appearance filters including blur, darkness and saturation.',
-    'modal.ctrl.p3': 'Built with React, TypeScript, Node.js, Express, Prisma and PostgreSQL.',
+    'modal.ctrl.title': 'Contoru - Online Desktop',
+    'modal.ctrl.p1': 'A web platform that transforms the browser into a visual desktop environment, allowing users to organize links and folders freely and intuitively. Each desktop can have its own name, wallpaper and icon layout.',
+    'modal.ctrl.p2': 'Desktops can be private or shared, allowing users to invite others to collaborate in the same environment. Links are automatically identified by domain, with favicons and previews when available, while search makes it possible to find items even inside folders.',
+    'modal.ctrl.p3': 'The project was built with a strong focus on visual and interactive experience, featuring draggable icons, windows, animations, appearance customization and hierarchical folder navigation.',
     'modal.nb.title': 'Institutional Website – NovaBalança Accounting',
     'modal.nb.p1': 'Development of an institutional website for an accounting firm focused on business registration.',
     'modal.nb.p2': 'The project features accessible, modern language aimed at entrepreneurs, highlighting advantages such as free CNPJ registration within 24 hours, personalized service, and digitalization of accounting processes.',
@@ -478,8 +478,7 @@ function animate(e) {
   }
 
   scrollContainer.style.marginTop = `${highGraph ? -current : -target}px`;
-  if (highGraph)
-    scrollContainer.style.filter = `blur(${Math.abs(diff) * 0.02}px)`;
+
 
   circle.style.left = `${highGraph ? finalX : mouseX}px`;
   circle.style.top = `${highGraph ? finalY : mouseY}px`;
